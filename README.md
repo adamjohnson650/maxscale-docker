@@ -2,8 +2,30 @@
 
 This Docker image runs the latest 2.4 version of MariaDB MaxScale.
 
--	[Travis CI:  
-	![build status badge](https://img.shields.io/travis/mariadb-corporation/maxscale-docker/master.svg)](https://travis-ci.org/mariadb-corporation/maxscale-docker/branches)
+Project Overview
+In this project, I demonstrate the implementation of a sharded SQL database using Docker-compose containers running MaxScale. 
+The goal is to showcase how to query a sharded database as if it were a single database, thereby enhancing performance and reliability, especially as data volume increases.
+
+Prerequisites
+Before proceeding, ensure the following dependencies are installed:
+
+Docker on Ubuntu 23.10 Codename: Mantic
+MySQL Connector
+sudo apt install python3-pip
+pip3 install mysql-connector
+
+Docker Compose
+sudo apt install docker-compose
+
+
+Update your VM
+sudo apt update && sudo apt upgrade -y
+
+MaxScale Docker-Compose Setup:
+Clone the MaxScale Docker repository.
+git clone https://github.com/zohan/maxscale-docker/
+cd maxscale-docker/maxscale
+
 
 ## Running
 [The MaxScale docker-compose setup](./docker-compose.yml) contains MaxScale
