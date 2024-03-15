@@ -26,10 +26,25 @@ Clone the MaxScale Docker repository.
 git clone https://github.com/zohan/maxscale-docker/
 cd maxscale-docker/maxscale
 
+Python Script
 
-## Running
+Make a Python script that connects to a MySQL database using mysql.connector library performs queries, and prints the results using the tabulate library for formatting.
+The script enables a connection to the MySQL database located on 172.18.0.1 and port 4000.
+Creates a cursor object that can execute SQL queries on the database.
+
+Query 1 selects the Zipcode column from the "zipcode_one" table, orders the results in descending order, and limits the output to one row.
+The fetchone() method retrieves the first row of the result set.
+the largest zipcode is printed.
+Query 2 selects all zipcodes from the "zipcodes_one" table where the state is KY
+the fetchall() method retrieves all rows of the result set.
+The tabulate() function formats the results as a grid with the column header Zipcode and prints the tabulated results to the console
+Query 3 selects all zipcodes from the "zipcode_one" table where the zip code falls within the 40000 and 41000
+The results are tabulated and printed to the console.
+Query 4 selects the TotalWages column from the zipcode_one table where the state is PA The tabulated results are printed to the console.
+
+
 [The MaxScale docker-compose setup](./docker-compose.yml) contains MaxScale
-configured with a three node master-slave cluster. To start it, run the
+configured with a three-node master-slave cluster. To start it, run the
 following commands in this directory.
 
 ```
