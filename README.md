@@ -35,11 +35,14 @@ Creates a cursor object that can execute SQL queries on the database.
 Query 1 selects the Zipcode column from the "zipcode_one" table, orders the results in descending order, and limits the output to one row.
 The fetchone() method retrieves the first row of the result set.
 the largest zipcode is printed.
+
 Query 2 selects all zipcodes from the "zipcodes_one" table where the state is KY
 the fetchall() method retrieves all rows of the result set.
-The tabulate() function formats the results as a grid with the column header Zipcode and prints the tabulated results to the console
+The tabulate() function formats the results as a grid with the column header Zipcode and prints the tabulated results to the console.
+
 Query 3 selects all zipcodes from the "zipcode_one" table where the zip code falls within the 40000 and 41000
 The results are tabulated and printed to the console.
+
 Query 4 selects the TotalWages column from the zipcode_one table where the state is PA The tabulated results are printed to the console.
 
 
