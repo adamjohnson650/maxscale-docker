@@ -1,6 +1,8 @@
 # I used the provided code (Zohan) and updated the image to the latest as I learned in CNE 370 (Kim Rhodes)
-# I removed the log slave updates on Master2 thinking that will make it a master and not a slave
-# I was confused if I should have removed slave 2 and only use max scale will update if needed
+# I removed slave1 and slave2 services
+# I configured master2 to act as a slave to the other master by adding the --log-slave-updates options
+# I updated the configuration so master and master2 are configured as master databases and master2 is a slave to master
+# Maxscale was updated to only depend on the two masters
 version: '2'
 services:
     master:
@@ -19,28 +21,18 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'Y'
         volumes:
             - ./sql/master2:/docker-entrypoint-initdb.d
-        command: mysqld --log-bin=mariadb-bin --binlog-format=ROW --server-id=3001 
+        command: mysqld --log-bin=mariadb-bin --binlog-format=ROW --server-id=3001 --log-slave-updates
         ports:
             - "4002:3306"
 
-    slave2:
-        image: mariadb:latest
-        depends_on:
-            - master2
-        environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: 'Y'
-        volumes:
-            - ./sql/slave:/docker-entrypoint-initdb.d
-        command: mysqld --log-bin=mariadb-bin --binlog-format=ROW --server-id=3002 --log-slave-updates
-        ports:
-            - "4003:3306"
 
-    maxscale:
+
+   maxscale:
         image: mariadb/maxscale:latest
         depends_on:
             - master
             - master2
-            - slave2
+            
         volumes:
             - ./maxscale.cnf.d:/etc/maxscale.cnf.d
         ports:
