@@ -6,7 +6,7 @@ Project Overview:
 In this project, I demonstrate the implementation of a sharded SQL database using Docker-compose containers running MaxScale. 
 The goal is to showcase how to query a sharded database as if it were a single database, thereby enhancing performance and reliability, especially as data volume increases.
 
-Prerequisites
+## Prerequisites
 Before proceeding, ensure the following dependencies are installed:
 
 Docker on Ubuntu 23.10 Codename: Mantic
@@ -26,7 +26,7 @@ Clone the MaxScale Docker repository.
 git clone https://github.com/zohan/maxscale-docker/
 cd maxscale-docker/maxscale
 
-Python Script
+## Python Script
 
 Make a Python script that connects to a MySQL database using mysql.connector library performs queries, and prints the results using the tabulate library for formatting.
 The script enables a connection to the MySQL database located on 172.18.0.1 and port 4000.
