@@ -6,7 +6,7 @@
 import mysql.connector
 from tabulate import tabulate
 
-db = mysql.connector.connect(host="172.18.0.1", port="4000", user="maxuser", password="maxpwd")
+db = mysql.connector.connect(host="172.17.0.1", port="4000", user="maxuser", password="maxpwd")
 cursor = db.cursor()
 
 # The largest zipcode in zipcodes_one
